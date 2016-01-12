@@ -3,6 +3,8 @@ PImage mat, rice, nori, sauce, wasabi, fish, avocado;
 
 void setup() {
   size(1280, 720);
+
+  //Images
   mat = loadImage("mat.png");
   rice = loadImage("rice.png");
   nori = loadImage("nori.png");
@@ -13,6 +15,7 @@ void setup() {
 }
 
 void draw() {
+  //Layout: images
   image(mat, 0, 0);
   image(rice, 80, 30);
   image(nori, 80, 30+200+30);
@@ -20,7 +23,8 @@ void draw() {
   image(wasabi, width-200-80, 40);
   image(fish, width-200-80, 50+165+40);
   image(avocado, width-200-80, height-165-40);
-
+  
+  //Layout: labels
   textSize(20);
   fill(255);
   text("RICE", 160, 180);
