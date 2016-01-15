@@ -1,9 +1,10 @@
-float x, y;
-PImage boat;
+float count;
+Boat b;
+
 void setup() {
   size(1280, 720);
   colorMode(HSB, 360, 100, 100);
-  boat = loadImage
+  count = 0;
 }
 
 void draw() {
@@ -13,5 +14,6 @@ void draw() {
   fill(210, 90, 99);
   rect(0, height/4, width, height);
   
-  
+  b.display(width/2, height/4 + sin(count));
+  count += 0.1;
 }
