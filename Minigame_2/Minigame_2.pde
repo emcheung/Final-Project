@@ -1,14 +1,16 @@
 //Minigame 2: Manufacture
 PImage mat, rice, nori, sauce, wasabi, fish, avocado;
 PVector mouse;
-int gMode, timer;
+int gMode, timer, number;
 
 void setup() {
   size(1280, 720);
-  int gMode=0;
-  
-    //Images
-    mat = loadImage("mat.png");
+  gMode=0;
+  timer = second();
+  number = 1;
+
+  //Images
+  mat = loadImage("mat.png");
   rice = loadImage("rice.png");
   nori = loadImage("nori.png");
   sauce = loadImage("sauce.png");
@@ -19,9 +21,9 @@ void setup() {
 
 void draw() {
   //Game: Setup
-  int timer = second();
   mouse = new PVector(mouseX, mouseY);
 
+  //Title Screen
   if (gMode == 0) {
     background(0);
     fill(255);
@@ -40,8 +42,10 @@ void draw() {
     text(des, 250, height/2, 800, height);
   }
 
-
+  //Setup screen
   if (gMode == 1) {
+    timer = second();
+    int number = 1; 
     //Layout: images
     image(mat, 0, 0);
     image(rice, 80, 30);
@@ -54,13 +58,25 @@ void draw() {
     //Layout: labels
     textSize(20);
     fill(255);
-    text("RICE", 160, 180);
-    text("NORI", 160, 365);
-    text("SAUCE", 145, 600);
+    text("RICE", 175, 180);
+    text("NORI", 175, 365);
+    text("SAUCE", 180, 600);
     fill(0);
-    text("WASABI", width-200-20, 170);
-    text("FISH", width-200-20, 365);
-    text("AVOCADO", width-200-40, 620);
+    text("WASABI", width-200, 170);
+    text("FISH", width-200, 365);
+    text("AVOCADO", width-200, 620);
+
+    //Game: order
+    textSize(15);
+    textAlign(CENTER);
+    fill(0);
+    String num = "ORDER #" + number;
+    String order = "Rice"+"Nori"+"Sauce"+"Wasabi"+"Fish"+"Avocado";
+    text(num + order, width/2, 18);
+
+    //if (){
+    //number+= 1;
+    //}
   }
 }
 
