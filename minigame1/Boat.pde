@@ -6,9 +6,9 @@ class Boat {
     boat = loadImage("boat.png");
   }
 
-  void display(float x, float y) {
+  void display(float bx, float by) {
     imageMode(CENTER);
     scale(0.4);
-    image(boat, x, y);
+    image(boat, bx, by);
   }
 }
