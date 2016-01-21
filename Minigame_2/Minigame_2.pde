@@ -1,22 +1,23 @@
-//Minigame 2: Manufacture
-PImage mat, rice, nori, sauce, wasabi, fish, avocado;
+//Minigame 2: Manufacture //<>//
 PVector mouse;
 int gMode, timer, number;
+Title screen;
+Ingredients mat, rice, nori, sauce, wasabi, fish, avocado;
 
 void setup() {
   size(1280, 720);
+
   gMode=0;
   timer = second();
   number = 1;
 
-  //Images
-  mat = loadImage("mat.png");
-  rice = loadImage("rice.png");
-  nori = loadImage("nori.png");
-  sauce = loadImage("sauce.png");
-  wasabi = loadImage("wasabi.png");
-  fish = loadImage("fish.png");
-  avocado = loadImage("avocado.png");
+  mat = new Ingredients();
+  rice = new Ingredients();
+  nori = new Ingredients();
+  sauce = new Ingredients();
+  wasabi = new Ingredients();
+  fish = new Ingredients();
+  avocado = new Ingredients();
 }
 
 void draw() {
@@ -25,57 +26,42 @@ void draw() {
 
   //Title Screen
   if (gMode == 0) {
-    background(0);
-    fill(255);
-    textAlign(CENTER, TOP);
-    textSize(100);
-    text("[ M I N I G A M E  2 ]", width/2, height/2-250);
-    textSize(75);
-    text("MANUFACTURING", width/2, height/2-125);
-    fill(150);
-    textSize(50);
-    text("click to continue...", width/2, height/2+200);
-    textAlign(LEFT);
-    fill(255);
-    textSize(20);
-    String des = "In this stage, you'll be making sushi. Click on the ingredient, then follow the directions given. If you make the wrong sushi or mess up the order, then 5 seconds will be added to your time! The restaurant needs 20 pieces of sushi!";
-    text(des, 250, height/2, 800, height);
+    screen = new Title();
+    screen.display();
   }
 
   //Setup screen
   if (gMode == 1) {
     timer = second();
     int number = 1; 
-    //Layout: images
-    image(mat, 0, 0);
-    image(rice, 80, 30);
-    image(nori, 80, 30+200+30);
-    image(sauce, 80, height-30-200);
-    image(wasabi, width-200-80, 40);
-    image(fish, width-200-80, 50+165+40);
-    image(avocado, width-200-80, height-165-40);
 
-    //Layout: labels
-    textSize(20);
-    fill(255);
-    text("RICE", 175, 180);
-    text("NORI", 175, 365);
-    text("SAUCE", 180, 600);
-    fill(0);
-    text("WASABI", width-200, 170);
-    text("FISH", width-200, 365);
-    text("AVOCADO", width-200, 620);
+    //Display images & labels
+    mat.display();
+    rice.display();
+    nori.display();
+    sauce.display();
+    wasabi.display();
+    fish.display();
+    avocado.display();
 
     //Game: order
-    textSize(15);
+    textSize(20);
     textAlign(CENTER);
     fill(0);
-    String num = "ORDER #" + number;
-    String order = "Rice"+"Nori"+"Sauce"+"Wasabi"+"Fish"+"Avocado";
-    text(num + order, width/2, 18);
+    int r = int(random(5));
+    int n = int(random(5));
+    int s = int(random(5));
+    int w = int(random(5));
+    int f = int(random(5));
+    int a = int(random(5));
+    String num = "ORDER #" + number + ": ";
+    String order = r+" Rice "+n+" Nori "+s+" Sauce "+w+" Wasabi "+f+" Fish "+a+" Avocado";
+    text(num + order, width/2, 23);
+    PVector mouse = new PVector (mouseX, mouseY);
 
-    //if (){
-    //number+= 1;
+
+    //if () {
+    //  number+= 1;
     //}
   }
 }
