@@ -1,8 +1,8 @@
 //Minigame 2: Manufacture //<>//
-PVector mouse;
 int gMode, timer, number;
 Title screen;
 Ingredients mat, rice, nori, sauce, wasabi, fish, avocado;
+int w, f, a;
 
 void setup() {
   size(1280, 720);
@@ -22,7 +22,6 @@ void setup() {
 
 void draw() {
   //Game: Setup
-  mouse = new PVector(mouseX, mouseY);
 
   //Title Screen
   if (gMode == 0) {
@@ -48,18 +47,11 @@ void draw() {
     textSize(20);
     textAlign(CENTER);
     fill(0);
-    int r = int(random(5));
-    int n = int(random(5));
-    int s = int(random(5));
-    int w = int(random(5));
-    int f = int(random(5));
-    int a = int(random(5));
+
     String num = "ORDER #" + number + ": ";
-    String order = r+" Rice "+n+" Nori "+s+" Sauce "+w+" Wasabi "+f+" Fish "+a+" Avocado";
+    String order = "1 Rice "+"1 Nori "+"1 Sauce "+w+" Wasabi "+f+" Fish "+a+" Avocado";
     text(num + order, width/2, 23);
-    PVector mouse = new PVector (mouseX, mouseY);
-
-
+    rice.place();
     //if () {
     //  number+= 1;
     //}
@@ -69,5 +61,15 @@ void draw() {
 void mouseClicked() {
   if (gMode == 0) {
     gMode = 1;
+    newOrder();
   }
+  if (mouseButton == RIGHT) {
+    newOrder();
+  }
+}
+
+void newOrder() {
+  w = int(random(3));
+  f = int(random(2));
+  a = int(random(3));
 }
