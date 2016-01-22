@@ -41,6 +41,7 @@ class Ingredients {
       fill(8, 36, 5);
       stroke(8, 36, 5);
       rect(width/2, height/2, 650, 500);
+      no = false;
     }
   }
   void rPlace() {
