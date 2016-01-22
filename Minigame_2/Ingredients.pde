@@ -1,6 +1,5 @@
 class Ingredients {
   int m, r, n, s, w, f, a;
-  boolean ma, ri, no, sa, wa, fi, av;
   PImage mat, rice, nori, sauce, wasabi, fish, avocado;
 
   Ingredients() {
@@ -12,13 +11,6 @@ class Ingredients {
     wasabi = loadImage("wasabi.png");
     fish = loadImage("fish.png");
     avocado = loadImage("avocado.png");
-    ma = false;
-    ri = false;
-    no = false;
-    sa = false;
-    wa = false;
-    fi = false;
-    av = false;
   }
 
   void display() { 
@@ -43,13 +35,19 @@ class Ingredients {
     text("AVOCADO", width-180, 620);
   }
 
-  void place() {
-    if (mouseX <=280  && mouseX >=80 && mouseY <= 230 && mouseY >= 30) {
-      ri = true;
-      if (ri = true) {
-        rect(500, 100, 500, 500);
-        fill(255);
-      }
+  void nPlace() {
+    rectMode(CENTER);
+    if (no = true) {
+      fill(8, 36, 5);
+      stroke(8, 36, 5);
+      rect(width/2, height/2, 650, 500);
+    }
+  }
+  void rPlace() {
+    if (ri = true) {
+      fill(255);
+      stroke(255);
+      rect(width/2, height/2, 550, 400);
     }
   }
 }

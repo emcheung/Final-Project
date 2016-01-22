@@ -1,7 +1,8 @@
-//Minigame 2: Manufacture //<>//
+//Minigame 2: Manufacture //<>// //<>//
 int gMode, timer, number;
 Title screen;
 Ingredients mat, rice, nori, sauce, wasabi, fish, avocado;
+boolean ma, ri, no, sa, wa, fi, av;
 int w, f, a;
 
 void setup() {
@@ -18,6 +19,14 @@ void setup() {
   wasabi = new Ingredients();
   fish = new Ingredients();
   avocado = new Ingredients();
+
+  ma = false;
+  ri = false;
+  no = false;
+  sa = false;
+  wa = false;
+  fi = false;
+  av = false;
 }
 
 void draw() {
@@ -51,10 +60,17 @@ void draw() {
     String num = "ORDER #" + number + ": ";
     String order = "1 Rice "+"1 Nori "+"1 Sauce "+w+" Wasabi "+f+" Fish "+a+" Avocado";
     text(num + order, width/2, 23);
-    rice.place();
     //if () {
     //  number+= 1;
     //}
+    if (ma == true) {
+      nori.nPlace();
+    }
+    if (no == true) {
+      textSize(20);
+      fill(255, 0, 0);
+      text("NORI", 180, 365);
+    }
   }
 }
 
@@ -65,6 +81,12 @@ void mouseClicked() {
   }
   if (mouseButton == RIGHT) {
     newOrder();
+  }
+  if (gMode == 1 && dist(mouseX, mouseY, 180, 365) <= 75) {
+    no = true;
+  }
+  if (gMode ==1 && no==true && dist(mouseX, mouseY, width/2, height/2) <= 200) {
+    ma = true;
   }
 }
 
