@@ -1,16 +1,21 @@
-float bx, by, sx, sy, sv, mode;
-PImage boat, worm, shark;
+float bx, by, fx, fy, fv, sx, sy, sv, tx, ty, tv, mode;
+PImage boat, fish, worm, shark, trash;
 
 void setup() {
   size(1280, 720);
   boat = loadImage("boat.png");
+  fish = loadImage("fish.png");
   worm = loadImage("worm.png");
   shark = loadImage("shark.png");
+  trash = loadImage("trash.png");
   bx = width/2;
   by = 0;
-  sx = random(height/4, height*3/4);
-  sy = random(width, width*2);
+  sx = random(width*-1, width*2);
+  sy = random(height/4, height*3/4);
   sv = 8;
+  tx = random(width*-1, width*2);
+  ty = random(height/4, height*3/4);
+  tv = 4;
   mode = 0;
 }
 
@@ -34,11 +39,21 @@ void draw() {
   image(worm, bx - 11, mouseY);
   
   //Shark
-  image(shark, sx, sy);
-  sx += sv;
   if(sx <= width*-1 || sx >= width*2) {
     sv *= -1;
   }
+  if(sv < 0) {
+    scale(-1);
+  }
+  image(shark, sx, sy);
+  sx += sv;
+  
+  //Trash
+  if(tx <= width*-1 || tx >= width*2) {
+    tv *= -1;
+  }
+  image(trash, tx, ty);
+  tx += tv;
   
   if(mode == 0) {
   background(0);
