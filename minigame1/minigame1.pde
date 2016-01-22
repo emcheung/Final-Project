@@ -1,34 +1,46 @@
-float bx, by, mode;
-PImage boat, worm;
+float bx, by, sx, sy, sv, mode;
+PImage boat, worm, shark;
 
 void setup() {
   size(1280, 720);
   boat = loadImage("boat.png");
   worm = loadImage("worm.png");
-  bx = width * 1.25;
-  by = -100;
+  shark = loadImage("shark.png");
+  bx = width/2;
+  by = 0;
+  sx = random(height/4, height*3/4);
+  sy = random(width, width*2);
+  sv = 8;
   mode = 0;
 }
 
 void draw() {
+  //Water and sky
   noStroke();
   fill(105, 250, 255);
   rect(0, 0, width, height);
   fill(0, 85, 250);
   rect(0, height/4, width, height);
-
-  scale(0.4);
+  
+  //Boat
   image(boat, bx, by);
 
-  strokeWeight(5);
-  stroke(0);
-  line(bx + 10, by + 150, bx + 10, mouseY * 2.5);
+  //Fishing Line
+  strokeWeight(2);
+  stroke(150);
+  line(bx, by, bx, mouseY);
 
-  image(worm, bx - 25, mouseY * 2.5);
-
-
+  //Worm
+  image(worm, bx - 11, mouseY);
+  
+  //Shark
+  image(shark, sx, sy);
+  sx += sv;
+  if(sx <= width*-1 || sx >= width*2) {
+    sv *= -1;
+  }
+  
   if(mode == 0) {
-  scale(2.5);
   background(0);
   fill(255);
   textAlign(CENTER, TOP);
