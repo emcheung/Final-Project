@@ -40,7 +40,7 @@ class Ingredients {
     if (no = true) {
       fill(8, 36, 5);
       stroke(8, 36, 5);
-      rect(width/2, height/2, 650, 500);
+      rect(width/2, height/2-50, 650, 500);
       no = false;
     }
   }
@@ -48,7 +48,7 @@ class Ingredients {
     if (ri = true) {
       fill(255);
       stroke(255);
-      rect(width/2, height/2, 550, 400);
+      rect(width/2, height/2-50, 550, 400);
     }
   }
 }

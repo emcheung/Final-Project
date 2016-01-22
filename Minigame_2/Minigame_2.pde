@@ -56,13 +56,17 @@ void draw() {
     textSize(20);
     textAlign(CENTER);
     fill(0);
-
     String num = "ORDER #" + number + ": ";
     String order = "1 Rice "+"1 Nori "+"1 Sauce "+w+" Wasabi "+f+" Fish "+a+" Avocado";
     text(num + order, width/2, 23);
-    //if () {
-    //  number+= 1;
-    //}
+
+    stroke(0);
+    rect(width/2, 670, 200, 40);
+    fill(255);
+    text("SEND TO WAITER", width/2, 675);
+    rectMode(CENTER); 
+
+
     if (ma == true) {
       nori.nPlace();
     }
@@ -79,7 +83,7 @@ void mouseClicked() {
     gMode = 1;
     newOrder();
   }
-  if (mouseButton == RIGHT) {
+  if (number>1 && mouseButton == LEFT && dist(mouseX, mouseY, width/2, 670)<=40) {
     newOrder();
   }
   if (gMode == 1 && dist(mouseX, mouseY, 180, 365) <= 75) {

@@ -15,7 +15,7 @@ class Title {
     textAlign(LEFT);
     fill(255);
     textSize(20);
-    String des = "In this stage, you'll be making sushi. Click on the ingredient, then follow the directions given. If you make the wrong sushi or mess up the order, then 5 seconds will be added to your time! The restaurant needs 20 pieces of sushi!";
+    String des = "In this stage, you'll be making sushi. Click on the ingredient and then the mat to deposit the ingredient. If the order requires more than one of the same type of ingredient, like 2 fish, click & deposit the ingredient twice. If you make the wrong sushi or mess up the order, then 5 seconds will be added to your time! The restaurant needs 20 pieces of sushi!";
     text(des, 250, height/2, 800, height);
   }
 }
