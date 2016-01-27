@@ -4,6 +4,7 @@ PImage bucket, boat, worm, bottle, can;
 Fish f;
 Shark s;
 Trash b, c;
+Title title;
 
 void setup() {
   size(1280, 720);
@@ -13,6 +14,7 @@ void setup() {
   b = new Trash();
   c = new Trash();
   
+  title = new Title();
   bucket = loadImage("bucket.png");
   boat = loadImage("boat.png");
   worm = loadImage("worm.png");
@@ -27,22 +29,7 @@ void setup() {
 
 void draw() {
   if (mode == 0) {
-    background(0);
-    fill(255);
-    textAlign(CENTER, TOP);
-    textSize(100);
-    text("[ M I N I G A M E  1 ]", width/2, height/2-250);
-    textSize(75);
-    text("FISHING", width/2, height/2-125);
-    fill(150);
-    textSize(50);
-    text("click to continue...", width/2, height/2+200);
-    textAlign(LEFT);
-    fill(255);
-    textSize(20);
-    String des = "Catch as many fish as you can! Watch out for garbage and the shark though.";
-    text(des, 250, height/2, 800, height);
-    
+  title.display();
   } else {
     
     //Water and sky
