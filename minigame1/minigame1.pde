@@ -1,5 +1,6 @@
 float bx, by, mode;
-int score;
+int score, timer;
+float count;
 PImage bucket, boat, worm, bottle, can;
 Fish f;
 Shark s;
@@ -9,18 +10,21 @@ Title title;
 void setup() {
   size(1280, 720);
   
+  frameRate(30);
+  timer = 60;
+
   f = new Fish();
   s = new Shark();
   b = new Trash();
   c = new Trash();
-  
+
   title = new Title();
   bucket = loadImage("bucket.png");
   boat = loadImage("boat.png");
   worm = loadImage("worm.png");
   bottle = loadImage("bottle.png");
   can = loadImage("can.png");
-  
+
   bx = width/2;
   by = 0;
   mode = 0;
@@ -29,9 +33,9 @@ void setup() {
 
 void draw() {
   if (mode == 0) {
-  title.display();
+    title.display();
   } else {
-    
+    timer += 1/frameRate;
     //Water and sky
     noStroke();
     fill(105, 250, 255);
@@ -59,7 +63,7 @@ void draw() {
 
     //Shark
     s.swim();
-    
+
     //Fish
     f.swim();
     f.hook(bx - 50, mouseY, bx);
@@ -67,10 +71,17 @@ void draw() {
       score += 1;
       f.reset();
     }
-    
+
     //Trash
     b.drift(bottle);
     c.drift(can);
+    
+    count +=1;
+    if(count == 30) {
+      timer -= 1;
+      count = 0;
+    }
+    text(timer, width - 100, 100);
   }
 }
 
