@@ -9,7 +9,7 @@ Title title;
 
 void setup() {
   size(1280, 720);
-  
+
   frameRate(30);
   timer = 60;
 
@@ -35,7 +35,7 @@ void draw() {
   if (mode == 0) {
     title.display();
   } else {
-    
+
     //Water and sky
     noStroke();
     fill(105, 250, 255);
@@ -75,10 +75,17 @@ void draw() {
     //Trash
     b.drift(bottle);
     c.drift(can);
+
+    if (f.hookstatus == 1) {
+      if (s.contact() || b.contact() || c.contact()) {
+        f.hookstatus = 0;
+        timer -= 5;
+      }
+    }
     
     //Timer
     count +=1;
-    if(count == 30) {
+    if (count == 30) {
       timer -= 1;
       count = 0;
     }

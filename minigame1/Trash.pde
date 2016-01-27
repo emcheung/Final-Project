@@ -21,4 +21,12 @@ class Trash {
       loc.y = random(height/4, height*3/4);
     }
   }
+  
+  boolean contact() {
+    if (bx-93 >= loc.x && bx+93 <= loc.x+100 && mouseY-47 >= loc.y && mouseY+47<=loc.y+100){
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
