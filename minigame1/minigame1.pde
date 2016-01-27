@@ -12,6 +12,7 @@ void setup() {
   s = new Shark();
   b = new Trash();
   c = new Trash();
+  
   bucket = loadImage("bucket.png");
   boat = loadImage("boat.png");
   worm = loadImage("worm.png");
@@ -26,7 +27,7 @@ void setup() {
 
 void draw() {
   if (mode == 0) {
-  background(0);
+    background(0);
     fill(255);
     textAlign(CENTER, TOP);
     textSize(100);
@@ -41,7 +42,7 @@ void draw() {
     textSize(20);
     String des = "Catch as many fish as you can! Watch out for garbage and the shark though.";
     text(des, 250, height/2, 800, height);
-
+    
   } else {
     
     //Water and sky
@@ -70,7 +71,7 @@ void draw() {
     image(worm, bx - 11, mouseY);
 
     //Shark
-    s.swim();}
+    s.swim();
     
     //Fish
     f.swim();
@@ -84,7 +85,7 @@ void draw() {
     b.drift(bottle);
     c.drift(can);
   }
-
+}
 
 void mousePressed() {
   if (mode == 0) {
