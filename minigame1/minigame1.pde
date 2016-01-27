@@ -35,7 +35,7 @@ void draw() {
   if (mode == 0) {
     title.display();
   } else {
-    timer += 1/frameRate;
+    
     //Water and sky
     noStroke();
     fill(105, 250, 255);
@@ -76,6 +76,7 @@ void draw() {
     b.drift(bottle);
     c.drift(can);
     
+    //Timer
     count +=1;
     if(count == 30) {
       timer -= 1;
